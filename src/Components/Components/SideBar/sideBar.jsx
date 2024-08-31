@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const SideBar = () => {
     return (
-        <div className="flex flex-col flex-1 start-0 p-5 bg-zinc-800">
+        <div className="hidden md:flex flex-col flex-1 start-0 p-5 bg-zinc-800">
             <div className="text-gray-300 py-2">
-                <h3 className="text-xs text-gray-400">Dashboard</h3>
+                <h3 className="text-xs">Dashboard</h3>
                 <ul className="ps-4 child:ps-1 child:pe-5 py-1 child:py-2 child:flex child:gap-x-2 child-hover:bg-zinc-700 child:transition-all child:rounded">
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

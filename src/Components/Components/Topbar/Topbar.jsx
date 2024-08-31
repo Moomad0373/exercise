@@ -8,8 +8,8 @@ const Topbar = () => {
                     Mohammad.ir <span className="text-red-800">❤️</span>
                 </span>
             </div>
-            <div className="flex gap-x-4 items-center">
-                <div className="relative cursor-pointer">
+            <div className="md:flex gap-x-4 items-center">
+                <div className="hidden md:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"
@@ -19,7 +19,7 @@ const Topbar = () => {
                     </svg>
                     <span className="absolute bg-red-700 w-5 h-5 items-center justify-center flex rounded-full -top-3 -right-2">2</span>
                 </div>
-                <div className="relative cursor-pointer">
+                <div className="hidden md:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"
@@ -29,7 +29,7 @@ const Topbar = () => {
                     </svg>
                     <span className="absolute bg-red-700 w-5 h-5 items-center justify-center flex rounded-full -top-3 -right-2">2</span>
                 </div>
-                <div className="relative cursor-pointer">
+                <div className="hidden md:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"

@@ -3,8 +3,8 @@ import { ResponsiveContainer, Line, LineChart, XAxis, Tooltip, CartesianGrid } f
 
 const Chart = ({ title, data, dataKey, grid }) => {
     return (
-        <div className="my-5 p-3 shadow-md shadow-zinc-600 bg-zinc-800 rounded-md">
-            <h3 className="my-5 text-xl">{title}</h3>
+        <div className="p-4 shadow-md shadow-zinc-800 bg-zinc-800 rounded-md">
+            <h3 className="gap-y-5 text-xl">{title}</h3>
             <ResponsiveContainer width={"100%"} aspect={"4"}>
                 <LineChart data={data}>
                     <XAxis dataKey="name" stroke="#519DE9" />
