@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeFeatures = () => {
     return (
-        <div className="flex w-full justify-evenly mt-10">
+        <div className="flex w-full justify-between mt-10">
             <div className="flex">
                 <div className="py-10 px-20 rounded-md child:py-2 bg-zinc-800">
                     <span>Revenue</span>
