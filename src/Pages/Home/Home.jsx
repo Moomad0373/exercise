@@ -6,7 +6,7 @@ import xAxisData from "../../Datas";
 const Home = () => {
     return (
         <div className="flex-[4] text-gray-300">
-            <div className="xxl:container px-2 lg:px-4 xl:px-16 flex flex-col gap-y-10">
+            <div className="flex flex-col gap-y-10">
                 <HomeFeatures />
                 <Chart title="Monthly Sale" data={xAxisData} dataKey="Sale" grid />
             </div>

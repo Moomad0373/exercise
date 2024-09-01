@@ -10,9 +10,7 @@ function App() {
             <Topbar />
             <div className="flex">
                 <SideBar />
-            <div className="container">
-                {router}
-            </div>
+                <div className="container">{router}</div>
             </div>
         </div>
     );

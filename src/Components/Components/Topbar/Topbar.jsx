@@ -4,8 +4,8 @@ const Topbar = () => {
     return (
         <div className="flex justify-between px-6 py-4 bg-zinc-800">
             <div>
-                <span className="text-4xl bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 bg-clip-text text-transparent transition-all font-bold cursor-pointer">
-                    Mohammad.ir <span className="text-red-800">❤️</span>
+                <span className="text-2xl md:text-4xl bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 bg-clip-text text-transparent transition-all font-bold cursor-pointer">
+                    Mohammad.ir <span className="text-red-800 hidden md:inline-block">❤️</span>
                 </span>
             </div>
             <div className="md:flex gap-x-4 items-center">
