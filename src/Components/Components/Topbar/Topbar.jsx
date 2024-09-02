@@ -1,6 +1,8 @@
 import React from "react";
 
-const Topbar = () => {
+const Topbar = ({ isOpenSideBar, setIsOpenSideBar }) => {
+    const toggleSideBar = () => setIsOpenSideBar(!isOpenSideBar);
+
     return (
         <div className="flex justify-between px-6 py-4 bg-zinc-800">
             <div>
@@ -8,7 +10,7 @@ const Topbar = () => {
                     Mohammad.ir <span className="text-red-800 hidden md:inline-block">❤️</span>
                 </span>
             </div>
-            <div className="md:flex gap-x-4 items-center">
+            <div className="flex gap-x-4 items-center">
                 <div className="hidden md:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
@@ -41,6 +43,19 @@ const Topbar = () => {
                 </div>
                 <div className="w-10 h-10 rounded-full cursor-pointer">
                     <img className="rounded-full" src="https://lh3.googleusercontent.com/ogw/AF2bZyiXZPzZ0EyW326nrds_YtYXRl7K3N6tFyGLy3ZDO_ufyHM=s64-c-mo" alt="profile" />
+                </div>
+                <div className="md:hidden">
+                    <button onClick={toggleSideBar}>
+                        {isOpenSideBar ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                            </svg>
+                        ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        )}
+                    </button>
                 </div>
             </div>
         </div>

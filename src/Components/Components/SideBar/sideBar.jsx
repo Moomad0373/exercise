@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SideBar = () => {
+const SideBar = ({ isOpenSideBar }) => {
     return (
-        <div className="hidden md:flex flex-col flex-1 start-0 p-5 bg-zinc-800">
+        <div className={`${isOpenSideBar ? "flex" : "hidden"} md:flex flex-col flex-1 start-0 p-5 bg-zinc-800`}>
             <div className="text-gray-300 py-2">
                 <h3 className="text-xs">Dashboard</h3>
                 <ul className="ps-4 child:ps-1 child:pe-5 py-1 child:py-2 child:flex child:gap-x-2 child-hover:bg-zinc-700 child:transition-all child:rounded">

@@ -10,7 +10,7 @@ const Chart = ({ title, data, dataKey, grid }) => {
                     <XAxis dataKey="name" stroke="#519DE9" />
                     <Line type={"monotone"} dataKey={dataKey} stroke="#519DE9" />
                     <Tooltip />
-                    {grid && <CartesianGrid stroke="#374151" strokeDasharray="10" />}
+                    {grid && <CartesianGrid stroke="#1f2937" strokeDasharray="10" />}
                 </LineChart>
             </ResponsiveContainer>
         </div>
