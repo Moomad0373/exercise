@@ -12,6 +12,7 @@ module.exports = {
         function ({ addVariant }) {
             addVariant("child", "& > *");
             addVariant("child-hover", "& > *:hover");
+            addVariant("last", "& > :last-child");
         },
     ],
 };

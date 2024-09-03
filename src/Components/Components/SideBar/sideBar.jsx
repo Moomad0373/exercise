@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const SideBar = ({ isOpenSideBar }) => {
+const SideBar = ({ isOpenSideBar, setIsOpenSideBar }) => {
+    // Start Section to Close the sidebar when user click outside the sidebar
+    const sidebarRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+                setIsOpenSideBar(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [setIsOpenSideBar]);
+    // End Section to Close the sidebar when user click outside the sidebar
+
     return (
-        <div className={`${isOpenSideBar ? "flex" : "hidden"} md:flex flex-col flex-1 start-0 p-5 h-full bg-zinc-800`}>
+        <div ref={sidebarRef} className={`${isOpenSideBar ? "flex" : "hidden"} lg:flex flex-col flex-1 start-0 p-5 h-full bg-zinc-800`}>
+            <div className="pb-4">
+                <span className="text-xl md:text-2xl bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 bg-clip-text text-transparent transition-all font-bold cursor-pointer">
+                    Mohammad.ir <span className="text-red-800 hidden md:inline-block">❤️</span>
+                </span>
+            </div>
             <div className="text-gray-300 py-2">
                 <h3 className="text-xs">Dashboard</h3>
                 <ul className="ps-4 child:ps-1 child:pe-5 py-1 child:py-2 child:flex child:gap-x-2 child-hover:bg-zinc-700 child:transition-all child:rounded">

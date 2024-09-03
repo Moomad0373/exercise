@@ -10,7 +10,7 @@ const Home = () => {
             <div className="flex flex-col gap-y-10">
                 <HomeFeatures />
                 <Chart title="Monthly Sale" data={xAxisData} dataKey="Sale" grid />
-                <div className="flex justify-between gap-x-10">
+                <div className="flex flex-col lg:flex-row justify-between lg:gap-x-10 gap-y-10">
                     <NewUsers />
                     <UserTransactions />
                 </div>

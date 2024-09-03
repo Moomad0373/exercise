@@ -4,14 +4,9 @@ const Topbar = ({ isOpenSideBar, setIsOpenSideBar }) => {
     const toggleSideBar = () => setIsOpenSideBar(!isOpenSideBar);
 
     return (
-        <div className="flex justify-between px-6 py-4 bg-zinc-800">
-            <div>
-                <span className="text-2xl md:text-4xl bg-gradient-to-r from-teal-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 bg-clip-text text-transparent transition-all font-bold cursor-pointer">
-                    Mohammad.ir <span className="text-red-800 hidden md:inline-block">❤️</span>
-                </span>
-            </div>
-            <div className="flex gap-x-4 items-center">
-                <div className="hidden md:flex relative cursor-pointer">
+        <div className="flex justify-between lg:justify-end items-center px-6 py-4 bg-zinc-800">
+            <div className="flex lg:flex-row flex-row-reverse gap-x-4 items-center">
+                <div className="hidden sm:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"
@@ -21,7 +16,7 @@ const Topbar = ({ isOpenSideBar, setIsOpenSideBar }) => {
                     </svg>
                     <span className="absolute bg-red-700 w-5 h-5 items-center justify-center flex rounded-full -top-3 -right-2">2</span>
                 </div>
-                <div className="hidden md:flex relative cursor-pointer">
+                <div className="hidden sm:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"
@@ -31,7 +26,7 @@ const Topbar = ({ isOpenSideBar, setIsOpenSideBar }) => {
                     </svg>
                     <span className="absolute bg-red-700 w-5 h-5 items-center justify-center flex rounded-full -top-3 -right-2">2</span>
                 </div>
-                <div className="hidden md:flex relative cursor-pointer">
+                <div className="hidden sm:flex relative cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7">
                         <path
                             stroke-linecap="round"
@@ -44,7 +39,9 @@ const Topbar = ({ isOpenSideBar, setIsOpenSideBar }) => {
                 <div className="w-10 h-10 rounded-full cursor-pointer">
                     <img className="rounded-full" src="https://lh3.googleusercontent.com/ogw/AF2bZyiXZPzZ0EyW326nrds_YtYXRl7K3N6tFyGLy3ZDO_ufyHM=s64-c-mo" alt="profile" />
                 </div>
-                <div className="md:hidden">
+            </div>
+            <div>
+                <div className="lg:hidden">
                     <button onClick={toggleSideBar}>
                         {isOpenSideBar ? (
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
