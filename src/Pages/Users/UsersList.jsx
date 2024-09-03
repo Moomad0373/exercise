@@ -50,7 +50,7 @@ const UsersList = () => {
     ];
     return (
         <div>
-            <DataGrid rows={userRowData} columns={columns} pageSize={10} />
+            <DataGrid autoHeight={true} rows={userRowData} columns={columns} pageSize={10} />
         </div>
     );
 };
