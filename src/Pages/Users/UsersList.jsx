@@ -1,13 +1,42 @@
-import React, { useState } from "react";
-import { userRows } from "../../Datas";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import useFetch from "../../Hooks/Hooks";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const UsersList = () => {
-    const [userRowData, setUserRowData] = useState(userRows);
-    const deleteUser = (userId) => {
-        setUserRowData((prevState) => prevState.filter((user) => user.id !== userId));
+    const plus = "users.json";
+    const { posts: initialPosts, isPending, error } = useFetch({ plus });
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        if (initialPosts) {
+            const filteredPosts = initialPosts.filter((post) => post !== null);
+            setPosts(filteredPosts);
+        }
+    }, [initialPosts]);
+
+    if (isPending) return <p>Loading...</p>;
+    if (error) return <p>Error: {error}</p>;
+    if (!posts) return <p>*** Loading ***</p>;
+
+    const deleteUser = async (userId) => {
+        const ID = userId - 1;
+        const firebaseUrl = `https://reactlearning-d4621-default-rtdb.firebaseio.com/users/${ID}.json`;
+
+        try {
+            const response = await axios.delete(firebaseUrl);
+
+            if (response.status === 200) {
+                console.log(`User with ID ${userId} deleted successfully`);
+                const updatedPosts = posts.filter((post) => post.id !== userId);
+                setPosts(updatedPosts);
+            }
+        } catch (error) {
+            console.error(`Error deleting user with ID ${userId}:`, error);
+        }
     };
+
     const columns = [
         { field: "id", headerName: "ID", width: 50 },
         {
@@ -17,7 +46,11 @@ const UsersList = () => {
             renderCell: (params) => (
                 <Link to="/">
                     <div className="flex gap-x-6 items-center">
-                        <img className="rounded-full w-8 h-8" src={params.row.avatar} alt="profile photo" />
+                        <img
+                            className="rounded-full w-8 h-8"
+                            src={params.row.image}
+                            alt="profile photo"
+                        />
                         <span>{params.row.username}</span>
                     </div>
                 </Link>
@@ -35,8 +68,18 @@ const UsersList = () => {
                     <Link to="/">
                         <button className="flex items-center justify-center w-20 h-10 bg-emerald-800">Edit</button>
                     </Link>
-                    <button onClick={() => deleteUser(params.row.id)} className="text-red-700 cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <button
+                        onClick={() => deleteUser(params.row.id)}
+                        className="text-red-700 cursor-pointer"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="size-6"
+                        >
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
@@ -50,7 +93,12 @@ const UsersList = () => {
     ];
     return (
         <div>
-            <DataGrid autoHeight={true} rows={userRowData} columns={columns} pageSize={10} />
+            <DataGrid
+                autoHeight={true}
+                rows={posts}
+                columns={columns}
+                autoPageSize={true}
+            />
         </div>
     );
 };
