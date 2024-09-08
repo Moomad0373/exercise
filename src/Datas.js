@@ -1303,3 +1303,4 @@ const userRows = [
 ];
 
 export { xAxisData, newMembers, transactions, userRows };
+
