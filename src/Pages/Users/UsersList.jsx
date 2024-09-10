@@ -66,7 +66,7 @@ const UsersList = () => {
             renderCell: (params) => (
                 <div className="flex items-center gap-x-5 mt-1">
                     <Link to="/">
-                        <button className="flex items-center justify-center w-20 h-10 bg-emerald-800">Edit</button>
+                        <button className="flex items-center justify-center w-20 h-10 bg-emerald-700">Edit</button>
                     </Link>
                     <button
                         onClick={() => deleteUser(params.row.id)}
@@ -97,7 +97,8 @@ const UsersList = () => {
                 autoHeight={true}
                 rows={posts}
                 columns={columns}
-                autoPageSize={true}
+                pageSize={5}
+                className="bg-zinc-500 text-white"
             />
         </div>
     );

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import NewUserComp from "./NewUserComp";
 import useFetch from "../../../Hooks/Hooks";
 
